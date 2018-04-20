@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,7 +28,7 @@ public class Shoe {
 	private double shippingWeight;
 	private boolean active=true;
 	private boolean newArrival=true;
-	
+	@Transient
 	private MultipartFile shoeImage;
 	
 	public Shoe() {
