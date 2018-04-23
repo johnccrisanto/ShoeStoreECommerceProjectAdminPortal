@@ -7,12 +7,25 @@
 <body>
 
 	<div th:replace="common/header :: navbar"></div>
-		<h1>Shoe List Page</h1>
-		
-		<div class="container">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2">
+				<h2 style="text-align: center;">Shoe List Page</h2>
+			</div>
+		</div>
+
+		<hr />
+
+
+		<div th:if="${shoeList.empty}">
+			<h2>The shoe list is currently empty.</h2>
+		</div>
+
+		<div class="container" th:if="${!shoeList.empty}">
 			<div class="table-responsive">
-				<table id="shoeListTable" class="table table-striped table-bordered table-hover">
-				
+				<table id="shoeListTable"
+					class="table table-striped table-bordered table-hover">
+
 					<thead>
 						<tr>
 							<th>Name</th>
@@ -41,16 +54,20 @@
 							<td th:text="${shoe.inStockNumber}"></td>
 							<td th:text="${shoe.active}"></td>
 							<td th:text="${shoe.newArrival}"></td>
-							<td><a th:href="@{/shoe/edit}"><span class="glyphicon glyphicon-pencil"></span></a></td>
-							<td><a th:href="@{/shoe/delete}"><span class="glyphicon glyphicon-remove"></span></a>
-							<td style="display: none;"><input hidden="hidden" name="id" th:value="${shoe.id}"/></td>
-							
+							<td><a th:href="@{/shoe/edit}"><span
+									class="glyphicon glyphicon-pencil"></span></a></td>
+							<td><a th:href="@{/shoe/delete}"><span
+									class="glyphicon glyphicon-remove"></span></a>
+							<td style="display: none;"><input hidden="hidden" name="id"
+								th:value="${shoe.id}" /></td>
+
 						</tr>
 					</tbody>
-				
+
 				</table>
 			</div>
 		</div>
+	</div>
 	<div th:replace="common/header :: body-bottom-scripts"></div>
 
 </body>
