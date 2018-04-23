@@ -59,5 +59,10 @@ a.no-decor:hover {
 	display: none;
 }
 
+tr th {
+	text-align: center;
+}
 
-.form
+tr td {
+	text-align: center;
+}

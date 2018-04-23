@@ -37,12 +37,12 @@
 							name="brand" required="required">
 							<option value="" selected="selected" disabled="disabled">Please
 								Select an Option...</option>
-							<option>Adidas</option>
-							<option>ASICS</option>
-							<option>New Balance</option>
-							<option>Nike</option>
-							<option>Puma</option>
-							<option>Reebok</option>
+							<option value="Adidas">Adidas</option>
+							<option value="ASICS">ASICS</option>
+							<option value="New Balance">New Balance</option>
+							<option value="Nike">Nike</option>
+							<option value="Puma">Puma</option>
+							<option value="Reebok">Reebok</option>
 						</select>
 					</div>
 
@@ -60,11 +60,11 @@
 							class="form-control" required="required">
 							<option value="" selected="selected" disabled="disabled">Please
 								select an option...</option>
-							<option value="basketball"
+							<option value="Basketball"
 								th:selected="(${shoe.category} == 'basketball')">Basketball</option>
-							<option value="running"
+							<option value="Running"
 								th:selected="(${shoe.category} == 'running')">Running</option>
-							<option value="tennis"
+							<option value="Tennis"
 								th:selected="(${shoe.category} == 'tennis')">Tennis</option>
 						</select>
 
