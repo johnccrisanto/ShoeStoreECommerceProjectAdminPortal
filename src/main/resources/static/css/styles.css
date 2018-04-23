@@ -1,5 +1,4 @@
 body {
-    padding-top: 70px;
     padding-bottom: 20px;
 }
 
@@ -59,3 +58,6 @@ a.no-decor:hover {
 .left.carousel-control, .right.carousel-control {
 	display: none;
 }
+
+
+.form

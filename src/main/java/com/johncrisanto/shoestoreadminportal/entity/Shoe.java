@@ -11,52 +11,52 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Shoe {
-	
+
 	@Id
-	@GeneratedValue (strategy=GenerationType.IDENTITY)
-	private Long shoeId;
-	private String shoeName;
-	private String shoeBrand;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String name;
+	private String brand;
 	private String releaseDate;
 	private String category;
-	@Column(columnDefinition="text")
+	@Column(columnDefinition = "text")
 	private String description;
 	private int inStockNumber;
 	private int shoeSize;
 	private double listPrice;
 	private double ourPrice;
 	private double shippingWeight;
-	private boolean active=true;
-	private boolean newArrival=true;
+	private boolean active = true;
+	private boolean newArrival = true;
 	@Transient
-	private MultipartFile shoeImage;
-	
+	private MultipartFile image;
+
 	public Shoe() {
-		
+
 	}
 
-	public Long getShoeId() {
-		return shoeId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setShoeId(Long shoeId) {
-		this.shoeId = shoeId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getShoeName() {
-		return shoeName;
+	public String getName() {
+		return name;
 	}
 
-	public void setShoeName(String shoeName) {
-		this.shoeName = shoeName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getShoeBrand() {
-		return shoeBrand;
+	public String getBrand() {
+		return brand;
 	}
 
-	public void setShoeBrand(String shoeBrand) {
-		this.shoeBrand = shoeBrand;
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 
 	public String getReleaseDate() {
@@ -139,14 +139,12 @@ public class Shoe {
 		this.newArrival = newArrival;
 	}
 
-	public MultipartFile getShoeImage() {
-		return shoeImage;
+	public MultipartFile getImage() {
+		return image;
 	}
 
-	public void setShoeImage(MultipartFile shoeImage) {
-		this.shoeImage = shoeImage;
+	public void setImage(MultipartFile image) {
+		this.image = image;
 	}
-	
-	
-	
+
 }
