@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+
+<head th:replace="common/header :: common-header" />
+
+<body>
+
+	<div th:replace="common/header :: navbar"></div>
+		<h1>Shoe List Page</h1>
+		
+		<div class="container">
+			<div class="table-responsive">
+				<table id="shoeListTable" class="table table-striped table-bordered table-hover">
+				
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Brand</th>
+							<th>Release Date</th>
+							<th>Category</th>
+							<th>Shipping Weight</th>
+							<th>List Price</th>
+							<th>Our Price</th>
+							<th>In Stock</th>
+							<th>Active?</th>
+							<th>New Arrival?</th>
+							<th>Edit Link</th>
+							<th>Delete Link</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr data-th-each="shoe : ${shoeList}">
+							<td th:text="${shoe.name}"></td>
+							<td th:text="${shoe.brand}"></td>
+							<td th:text="${shoe.releaseDate}"></td>
+							<td th:text="${shoe.category}"></td>
+							<td th:text="${shoe.shippingWeight}"></td>
+							<td th:text="${shoe.listPrice}"></td>
+							<td th:text="${shoe.ourPrice}"></td>
+							<td th:text="${shoe.inStockNumber}"></td>
+							<td th:text="${shoe.active}"></td>
+							<td th:text="${shoe.newArrival}"></td>
+							<td><a th:href="@{/shoe/edit}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+							<td><a th:href="@{/shoe/delete}"><span class="glyphicon glyphicon-remove"></span></a>
+							<td style="display: none;"><input hidden="hidden" name="id" th:value="${shoe.id}"/></td>
+							
+						</tr>
+					</tbody>
+				
+				</table>
+			</div>
+		</div>
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+
+</body>
+</html>

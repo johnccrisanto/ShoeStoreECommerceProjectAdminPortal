@@ -22,7 +22,6 @@ public class Shoe {
 	@Column(columnDefinition = "text")
 	private String description;
 	private int inStockNumber;
-	private int shoeSize;
 	private double listPrice;
 	private double ourPrice;
 	private double shippingWeight;
@@ -89,14 +88,6 @@ public class Shoe {
 
 	public void setInStockNumber(int inStockNumber) {
 		this.inStockNumber = inStockNumber;
-	}
-
-	public int getShoeSize() {
-		return shoeSize;
-	}
-
-	public void setShoeSize(int shoeSize) {
-		this.shoeSize = shoeSize;
 	}
 
 	public double getListPrice() {
