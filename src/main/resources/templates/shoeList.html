@@ -8,7 +8,7 @@
 
 	<div th:replace="common/header :: navbar"></div>
 	<div class="container">
-		<div class="row">
+		<div class="row" style="background-color: #013668; color: #ffffff;">
 			<div class="col-xs-8 col-xs-offset-2">
 				<h2 style="text-align: center;">Shoe List Page</h2>
 			</div>
@@ -36,7 +36,7 @@
 							<th>Shipping Weight</th>
 							<th>List Price</th>
 							<th>Our Price</th>
-							<th>In Stock</th>
+							<th>Number In Stock</th>
 							<th>Active?</th>
 							<th>New Arrival?</th>
 							<th>Edit Link</th>
@@ -45,7 +45,7 @@
 					</thead>
 					<tbody>
 						<tr data-th-each="shoe : ${shoeList}">
-							<td><img style="max-width: 50px;" th:src="@{/images/shoe/}+${shoe.id}+'.png'"/></td>
+							<td><img style="max-width: 70px;" th:src="@{/images/shoe/}+${shoe.id}+'.png'"/></td>
 							<td th:text="${shoe.name}"></td>
 							<td th:text="${shoe.brand}"></td>
 							<td th:text="${shoe.releaseDate}"></td>
