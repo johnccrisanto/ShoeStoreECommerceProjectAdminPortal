@@ -10,7 +10,7 @@
 
 	<div class="container">
 
-		<div class="row">
+		<div class="row" style="background-color: #013668; color: #ffffff; border-radius: 10px;">
 			<div class="col-xs-8 col-xs-offset-2">
 				<h2 style="text-align: center;">New Shoe Information</h2>
 			</div>
@@ -26,7 +26,7 @@
 					<div class="form-group">
 						<label for="shoeName">Shoe Name</label> <input type="text"
 							class="form-control" id="shoeName" name="Name"
-							required="required" placeholder="Shoe Name..."
+							required="required" placeholder="Shoe name..."
 							th:value="${shoe.name}" />
 					</div>
 
@@ -36,7 +36,7 @@
 							class="form-control" th:value="${shoe.brand}" id="shoeBrand"
 							name="brand" required="required">
 							<option value="" selected="selected" disabled="disabled">Please
-								Select an Option...</option>
+								select an option...</option>
 							<option value="Adidas">Adidas</option>
 							<option value="ASICS">ASICS</option>
 							<option value="New Balance">New Balance</option>
@@ -142,7 +142,7 @@
 						<label for="description">Description</label>
 						<textarea name="description" rows="5" class="form-control"
 							id="description" th:value="${shoe.description}"
-							placeholder="Shoe Description..." required="required"></textarea>
+							placeholder="Shoe description..." required="required"></textarea>
 					</div>
 
 					<!-- upload image -->
