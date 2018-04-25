@@ -3,6 +3,8 @@ package com.johncrisanto.shoestoreadminportal.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -71,5 +73,40 @@ public class ShoeController {
 		Shoe shoe = shoeService.findById(id);
 		model.addAttribute("shoe", shoe);
 		return "shoeInfo";
+	}
+	
+	@RequestMapping("/updateShoe")
+	public String updateShoe(@RequestParam("id") Long id, Model model) {
+		
+		Shoe shoe = shoeService.findById(id);
+		
+		model.addAttribute("shoe", shoe);
+		return "updateShoe";
+	}
+	
+	@PostMapping("/updateShoe") 
+	public String updateShoePost(@ModelAttribute("shoe") Shoe shoe, HttpServletRequest request) {
+		
+		shoeService.save(shoe);
+		
+		MultipartFile shoeImage = shoe.getImage();
+		
+		if(!shoeImage.isEmpty()) {
+			try {
+				byte[] bytes = shoeImage.getBytes();
+				String name = shoe.getId() + ".png";
+				
+				Files.delete(Paths.get("src/main/resources/static/images/shoe/" + name));
+				
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(("src/main/resources/static/images/shoe/" + name))));
+				stream.write(bytes);;
+				stream.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return "redirect:/shoe/shoeList";
 	}
 }
