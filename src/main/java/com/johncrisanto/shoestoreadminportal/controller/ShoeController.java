@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,12 +77,27 @@ public class ShoeController {
 		return "shoeInfo";
 	}
 	
-	@RequestMapping("/updateShoe")
+	@GetMapping("/updateShoe")
 	public String updateShoe(@RequestParam("id") Long id, Model model) {
 		
 		Shoe shoe = shoeService.findById(id);
 		
+		List<String> shoeBrands = new ArrayList<>();
+		shoeBrands.add("Adidas");
+		shoeBrands.add("ASICS");
+		shoeBrands.add("New Balance");
+		shoeBrands.add("Nike");
+		shoeBrands.add("Puma");
+		shoeBrands.add("Reebok");
+		
+		List<String> shoeCategories = new ArrayList<>();
+		shoeCategories.add("Basketball");
+		shoeCategories.add("Running");
+		shoeCategories.add("Tennis");
+		
 		model.addAttribute("shoe", shoe);
+		model.addAttribute("shoeBrands", shoeBrands);
+		model.addAttribute("shoeCategories", shoeCategories);
 		return "updateShoe";
 	}
 	
