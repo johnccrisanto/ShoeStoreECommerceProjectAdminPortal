@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.johncrisanto.shoestoreadminportal.entity.Shoe;
@@ -63,5 +64,12 @@ public class ShoeController {
 		
 		model.addAttribute("shoeList", shoeList);
 		return "shoeList";
+	}
+	
+	@RequestMapping("/shoeInfo")
+	public String shoeInfo(@RequestParam("id") Long id, Model model) {
+		Shoe shoe = shoeService.findById(id);
+		model.addAttribute("shoe", shoe);
+		return "shoeInfo";
 	}
 }

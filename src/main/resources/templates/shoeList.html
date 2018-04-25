@@ -46,7 +46,7 @@
 					<tbody>
 						<tr data-th-each="shoe : ${shoeList}">
 							<td><img style="max-width: 70px;" th:src="@{/images/shoe/}+${shoe.id}+'.png'"/></td>
-							<td th:text="${shoe.name}"></td>
+							<td><a th:href="@{/shoe/shoeInfo?id=} + ${shoe.id}"><span th:text="${shoe.name}"></span></a></td>
 							<td th:text="${shoe.brand}"></td>
 							<td th:text="${shoe.releaseDate}"></td>
 							<td th:text="${shoe.category}"></td>
@@ -56,12 +56,11 @@
 							<td th:text="${shoe.inStockNumber}"></td>
 							<td th:text="${shoe.active}"></td>
 							<td th:text="${shoe.newArrival}"></td>
-							<td><a th:href="@{/shoe/edit}"><span
+							<td><a th:href="@{/shoe/updateShoe?id=} + ${shoe.id}"><span
 									class="glyphicon glyphicon-pencil"></span></a></td>
 							<td><a th:href="@{/shoe/delete}"><span
 									class="glyphicon glyphicon-remove"></span></a>
-							<td style="display: none;"><input hidden="hidden" name="id"
-								th:value="${shoe.id}" /></td>
+							<td style="display: none;"></td>
 
 						</tr>
 					</tbody>

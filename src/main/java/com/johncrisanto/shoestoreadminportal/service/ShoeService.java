@@ -9,4 +9,6 @@ public interface ShoeService {
 	Shoe save(Shoe shoe);
 
 	List<Shoe> findAll();
+
+	Shoe findById(Long id);
 }
