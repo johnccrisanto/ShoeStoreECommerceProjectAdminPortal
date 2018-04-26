@@ -21,18 +21,29 @@
 <!-- Custom styles for this template -->
 <link th:href="@{/css/styles.css}" rel="stylesheet" />
 
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato"
+	rel="stylesheet">
+	
+<!--  Data Table -->
+<!-- <link th:href="@{/css/jquery.dataTables.min.css}" rel="stylesheet" /> -->
+<!-- <link th:href="@{/css/dataTables.bootstrap.min.css}" rel="stylesheet" /> -->
+<link th:href="@{/css/jquery.dataTables.min.css}" rel="stylesheet" />
+<link th:href="@{/css/jquery.dataTables_themeroller.css}" rel="stylesheet" />
+<link th:href="@{/css/dataTables.bootstrap.min.css}" rel="stylesheet" />
+
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
 
 </head>
 
 <body>
 	<div th:fragment="navbar">
-		<nav class="navbar navbar-light navbar-static-top" style="background-color: #F7F7F9;">
+		<nav class="navbar navbar-light navbar-static-top"
+			style="background-color: #F7F7F9;">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed"
-						data-toggle="collapse" data-target="#navbar"
-						aria-expanded="false">
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span> <span
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
@@ -51,10 +62,10 @@
 								<li><a th:href="@{/shoe/shoeList}">View List of Shoes</a></li>
 							</ul></li>
 					</ul>
-				
+
 					<ul class="nav navbar-nav navbar-right">
 						<li><a th:href="@{/processLogout}">Sign Out</a></li>
-						
+
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -67,9 +78,16 @@
 		<!-- Bootstrap core JavaScript
     ================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script th:src="@{/js/jquery.min.js}"></script>
 		<script th:src="@{/js/bootstrap.min.js}"></script>
+		
+		<!--  Data tables -->
+<!-- 		<script th:src="@{/js/jquery.dataTables.min.js}"></script> -->
+<!-- 		<script th:src="@{/js/dataTables.bootstrap.min.js}"></script> -->
+
+		<script th:src="@{/js/jquery.dataTables.min.js}"></script>
+		<script th:src="@{/js/dataTables.bootstrap.min.js}"></script>
+		
 	</div>
 </body>
 </html>
