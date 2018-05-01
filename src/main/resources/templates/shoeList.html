@@ -28,6 +28,7 @@
 
 					<thead>
 						<tr>
+							<th><input th:id="selectAllShoes" type="checkbox" /></th>
 							<th>Photo</th>
 							<th>Name</th>
 							<th>Brand</th>
@@ -45,6 +46,10 @@
 					</thead>
 					<tbody>
 						<tr data-th-each="shoe : ${shoeList}">
+							<td>
+							<input hidden="hidden" name="id" th:value="${shoe.id}" />
+							<input th:id="'selected' + ${shoe.id}" class="checkBoxShoe" type="checkbox" />
+							</td>
 							<td><img style="max-width: 70px;" th:src="@{/images/shoe/}+${shoe.id}+'.png'"/></td>
 							<td><a th:href="@{/shoe/shoeInfo?id=} + ${shoe.id}"><span th:text="${shoe.name}"></span></a></td>
 							<td th:text="${shoe.brand}"></td>
@@ -58,13 +63,19 @@
 							<td th:text="${shoe.newArrival}"></td>
 							<td><a th:href="@{/shoe/updateShoe?id=} + ${shoe.id}"><span
 									class="glyphicon glyphicon-pencil"></span></a></td>
-							<td><a th:href="@{/shoe/deleteShoe}"><span
-									class="glyphicon glyphicon-remove"></span></a>
+							<td><input hidden="hidden" name="id" th:value="${shoe.id}" /><button th:id="'oneShoe-' + ${shoe.id}" 
+							class="btn btn-danger btn-xs delete-shoe" type="submit" value="delete">
+							<span class="fa fa-times"> Delete</span>
+							</button></td>
+							
 						</tr>
 					</tbody>
 
 				</table>
 			</div>
+			<button th:id="deleteSelected" 
+							class="btn btn-danger"> Delete Selected</button>
+			
 		</div>
 	</div>
 	<div th:replace="common/header :: body-bottom-scripts"></div>

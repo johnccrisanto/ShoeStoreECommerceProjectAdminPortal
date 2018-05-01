@@ -29,5 +29,13 @@ public class ShoeServiceImpl implements ShoeService {
 		public Shoe findById(Long id) {
 			return shoeRepository.findById(id).orElse(null);
 		}
+
+		@Override
+		public void removeById(Long id) {
+			shoeRepository.deleteById(id);
+			
+		}
+		
+		
 		
 }

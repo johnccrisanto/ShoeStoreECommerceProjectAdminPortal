@@ -11,4 +11,6 @@ public interface ShoeService {
 	List<Shoe> findAll();
 
 	Shoe findById(Long id);
+
+	void removeById(Long id);
 }

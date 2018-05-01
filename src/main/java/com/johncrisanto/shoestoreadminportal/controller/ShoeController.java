@@ -61,6 +61,17 @@ public class ShoeController {
 		return "redirect:shoeList";
 	}
 	
+	@PostMapping("/remove")
+	public String remove(@ModelAttribute("id") String id, Model model) {
+			shoeService.removeById(Long.parseLong(id.substring(8)));
+			List<Shoe> shoeList = shoeService.findAll();
+			model.addAttribute("shoeList", shoeList);
+			
+			return "redirect:/shoe/shoeList";
+			
+		}
+	
+	
 	@RequestMapping("/shoeList")
 	public String bookList(Model model) {
 		
